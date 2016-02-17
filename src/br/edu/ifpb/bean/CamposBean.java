@@ -2,32 +2,38 @@ package br.edu.ifpb.bean;
 
 import javax.annotation.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
 
-import br.edu.ifpb.entidades.Campos;
-
+@ViewScoped
 @RequestScoped
 @ManagedBean
 public class CamposBean {
 
-	private Campos campo;
+	private String campo1;
+	private String campo2;
 
-	public CamposBean(){
-		this.campo = new Campos();
-	}
-	
-	public Campos getCampo() {
-		return campo;
+	public String getCampo1() {
+		return campo1;
 	}
 
-	public void setCampo(Campos campo) {
-		this.campo = campo;
+	public void setCampo1(String campo1) {
+		this.campo1 = campo1;
 	}
-	
+
+	public String getCampo2() {
+		return campo2;
+	}
+
+	public void setCampo2(String campo2) {
+		this.campo2 = campo2;
+	}
+
 	public String inverte(){
 		
-		String aux = campo.getCampo1();
-		campo.setCampo1(campo.getCampo2()); 
-		campo.setCampo2(aux);
+		String aux = null;
+		aux = campo1;
+		campo1 = campo2;
+		campo2 = aux;
 		
 		return null;
 	}
