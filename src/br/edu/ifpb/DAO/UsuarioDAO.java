@@ -1,11 +1,10 @@
 package br.edu.ifpb.DAO;
 
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.Statement;
+import java.sql.Statement;
 
 import br.edu.ifpb.entidades.Usuario;
 
@@ -19,37 +18,37 @@ public class UsuarioDAO {
 	}
 
 	// CONEXÃO COM O BD
-	public void abrirConexao() {
+	public void abrirConexao() throws ClassNotFoundException {
 
 		try {
 
 			Class.forName("com.mysql.jdbc.Driver");
-			this.con = (Connection) DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/NewJSF", "root", "root1234");
-
-		} catch (ClassNotFoundException cnfe) {
-			System.out.println("Nao foi possivel encontrar o Driver apropriado");
-		} catch (SQLException sqle) {
-			System.out.println("Nao foi possivel conectar ao SGBD");
-			sqle.printStackTrace(System.err);
+			this.con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/NewJSF", "root", "root1234");
+		
+		} catch (SQLException error) {
+			System.out.println("Nao foi possivel conectar ao BD " + error);
 		}
 		System.out.println("Conexão aberta");
 
 	}
 
 	public void fecharConexao() {
+		
 		try {
 			this.con.close();
-		} catch (SQLException e) {
-			System.out.println("Nao foi possivel fechar conexão");
-			e.printStackTrace();
+		} catch (SQLException error) {
+			System.out.println("Nao foi possivel fechar conexão" + error);
+			error.printStackTrace();
 		} catch (NullPointerException npe) {
 			System.out.println("Nao foi possivel realizar inserção");
 			npe.printStackTrace(System.err);
 		}
 		System.out.println("Conexão fechada");
+		
 	}
 
-	public Usuario mostraUsuario() {
+	public Usuario mostraUsuario() throws ClassNotFoundException {
+		
 		System.out.println("Conexão aberta");
 
 		UsuarioDAO bd = new UsuarioDAO();
@@ -58,9 +57,9 @@ public class UsuarioDAO {
 		try {
 
 			bd.abrirConexao();
-			Statement st = (Statement) con.createStatement();
+			Statement st = con.createStatement();
 
-			String sql = "SELECT * FROM usuario";
+			String sql = "select * from usuario";
 
 			rs = st.executeQuery(sql);
 			rs.next();
@@ -72,9 +71,10 @@ public class UsuarioDAO {
 			st.close();
 			rs.close();
 			bd.fecharConexao();
-		} catch (SQLException sqle) {
+			
+		} catch (SQLException error) {
 			System.out.println("Nao foi possivel realizar inserção");
-			sqle.printStackTrace(System.err);
+			error.printStackTrace(System.err);
 		} catch (NullPointerException npe) {
 			System.out.println("Nao foi possivel realizar inserção");
 			npe.printStackTrace(System.err);

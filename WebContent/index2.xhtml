@@ -11,23 +11,27 @@
 	</head>
 <body>
 
-	<h:dataTable value="${usuarioBean.usuario}" var="user" rules="rows">
-		<f:facet name="caption">Lista de Usuarios  
-               </f:facet>
-		<f:facet name="footer">Fim da listagem</f:facet>
-		<h:column>
-			<f:facet name="header">Nome</f:facet>#{user.nome}  
-               </h:column>
-		<h:column>
-			<f:facet name="header">Matricula</f:facet>#{user.matricula}  
-               </h:column>
-		<h:column>
-			<f:facet name="header">Nascimento</f:facet>#{user.data}  
-               </h:column>
-	</h:dataTable>
-	
 	<h:commandButton id="exibe" action="#{usuarioBean.exibeUsuario}"
 		value="Exibir" />
+		
+	<h:dataTable value="${usuarioBean.usuario}" var="user" rules="rows">
+		
+		<f:facet name="caption">Lista de Usuarios  
+        </f:facet>
+		
+		<h:column>
+			<f:facet name="header">Nome</f:facet>#{user.nome}  
+        </h:column>
+		
+		<h:column>
+			<f:facet name="header">Matricula</f:facet>#{user.matricula}  
+        </h:column>
+        
+		<h:column>
+			<f:facet name="header">Nascimento</f:facet>#{user.data}  
+        </h:column>
+        
+	</h:dataTable>
 	
 </body>
 </html>

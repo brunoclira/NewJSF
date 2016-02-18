@@ -12,13 +12,10 @@ import br.edu.ifpb.DAO.UsuarioDAO;
 import br.edu.ifpb.entidades.Usuario;
 
 @RequestScoped
-@ManagedBean
+@ManagedBean(name = "usuarioBean")
 public class UsuarioBean {
 
 	ArrayList<Usuario> usuario;
-
-	public static Connection connection;
-	public static ResultSet rs;
 
 	public UsuarioBean() {
 		this.usuario = new ArrayList<Usuario>();
@@ -32,12 +29,12 @@ public class UsuarioBean {
 		this.usuario = usuario;
 	}
 
-	public void exibeUsuario() {
+	public void exibeUsuario() throws ClassNotFoundException {
 		int i = 0;
 		UsuarioDAO bd = new UsuarioDAO();
 		Usuario user = new Usuario();
 
-		for (i = 0; i < 5; i++) {
+		for (i = 0; i < 2; i++) {
 			user = bd.mostraUsuario();
 			this.usuario.add(i, user);
 		}
