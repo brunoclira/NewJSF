@@ -2,9 +2,7 @@ package br.edu.ifpb.bean;
 
 import javax.annotation.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.bean.ViewScoped;
 
-@ViewScoped
 @RequestScoped
 @ManagedBean
 public class CamposBean {
