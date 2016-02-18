@@ -66,7 +66,7 @@ public class UsuarioDAO {
 			rs.next();
 
 			user.setMatricula(rs.getInt("matricula"));
-			user.setData(rs.getString("data_nasc"));
+			user.setData(rs.getString("dt_nasc"));
 			user.setNome(rs.getString("nome"));
 
 			st.close();
