@@ -28,7 +28,7 @@ public class UsuarioDAO {
 		} catch (SQLException error) {
 			System.out.println("Nao foi possivel conectar ao BD " + error);
 		}
-		System.out.println("Conexão aberta");
+		//System.out.println("Conexão aberta");
 
 	}
 
@@ -43,13 +43,13 @@ public class UsuarioDAO {
 			System.out.println("Nao foi possivel realizar inserção");
 			npe.printStackTrace(System.err);
 		}
-		System.out.println("Conexão fechada");
+		//System.out.println("Conexão fechada");
 		
 	}
 
 	public Usuario mostraUsuario() throws ClassNotFoundException {
 		
-		System.out.println("Conexão aberta");
+		//System.out.println("Conexão aberta");
 
 		UsuarioDAO bd = new UsuarioDAO();
 		Usuario user = new Usuario();
