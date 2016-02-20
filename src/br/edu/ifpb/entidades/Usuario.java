@@ -3,7 +3,8 @@ package br.edu.ifpb.entidades;
 public class Usuario {
 	
 	private String nome;
-	private String data;
+	private String dt_nasc;
+
 	private int matricula;
 
 	public Usuario() {
@@ -17,13 +18,13 @@ public class Usuario {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
-	public String getData() {
-		return data;
+	
+	public String getDt_nasc() {
+		return dt_nasc;
 	}
 
-	public void setData(String data) {
-		this.data = data;
+	public void setDt_nasc(String dt_nasc) {
+		this.dt_nasc = dt_nasc;
 	}
 
 	public int getMatricula() {

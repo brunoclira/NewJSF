@@ -12,7 +12,7 @@ import br.edu.ifpb.DAO.UsuarioDAO;
 import br.edu.ifpb.entidades.Usuario;
 
 @RequestScoped
-@ManagedBean(name = "usuarioBean")
+@ManagedBean(name = "UsuarioBean")
 public class UsuarioBean {
 
 	ArrayList<Usuario> usuario;
@@ -37,7 +37,10 @@ public class UsuarioBean {
 		for (i = 0; i < 2; i++) {
 			user = bd.mostraUsuario();
 			this.usuario.add(i, user);
+			System.out.println(usuario);
 		}
+		
+		
 
 	}
 
