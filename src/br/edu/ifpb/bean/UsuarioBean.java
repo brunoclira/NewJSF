@@ -36,8 +36,8 @@ public class UsuarioBean {
 
 		for (i = 0; i < 2; i++) {
 			user = bd.mostraUsuario();
-			this.usuario.add(i, user);
-			System.out.println(usuario);
+			usuario.add(i, user);
+			//System.out.println(usuario.getNome);
 		}
 		
 		
