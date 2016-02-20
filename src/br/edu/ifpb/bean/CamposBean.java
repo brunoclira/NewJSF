@@ -1,10 +1,10 @@
 package br.edu.ifpb.bean;
 
-import javax.annotation.ManagedBean;
+import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
 @RequestScoped
-@ManagedBean
+@ManagedBean(name="CamposBean")
 public class CamposBean {
 
 	private String campo1;
